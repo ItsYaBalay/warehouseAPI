@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:$ecreT123@localhost:5432/postgres"
+  //env("DATABASE_URL")
+}
+
+model Products {
+  upc       String     @id
+  sku       String  @unique
+  name      String  
+  perInner  Int?     
+  perMaster Int
+  stock Stock[] @relation
+}
+
+model Stock {
+  id         String      @id @default(uuid())
+  product    Products    @relation(fields: [productId], references: [upc], onDelete: Cascade)
+  productId String
+  masterAmount Int
+  innerAmount Int?
+  unitAmound Int
+  location Location? @relation
+}
+
+model Location {
+    id String @id
+    aisle Int
+    side String
+    top Boolean
+    position Int
+    stock Stock @relation(fields: [stockId], references: [id], onDelete: Cascade)
+    stockId String @unique
+}
