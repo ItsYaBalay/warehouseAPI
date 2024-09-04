@@ -23,8 +23,10 @@ model Stock {
   productId String
   masterAmount Int
   innerAmount Int?
-  unitAmound Int
-  location Location? @relation
+  unitAmount Int
+  locationId String
+  location Location @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  @@unique([locationId, productId])
 }
 
 model Location {
@@ -33,6 +35,5 @@ model Location {
     side String
     top Boolean
     position Int
-    stock Stock @relation(fields: [stockId], references: [id], onDelete: Cascade)
-    stockId String @unique
+    stock Stock[] @relation
 }

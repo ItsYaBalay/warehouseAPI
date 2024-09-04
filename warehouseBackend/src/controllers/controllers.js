@@ -1,7 +1,11 @@
 const {
     createProduct,
-    getAllProducts,
-    getProductBySku
+  getAllProducts,
+  getProductBySku,
+  createLocation,
+  getAllLocations,
+  createStock,
+  updateLocationStock,
 } = require("../queries/queries");
 
 const create = async (req, res) => {
@@ -30,8 +34,48 @@ const skuSearch = async (req,res) => {
       }
 }
 
+const newLocation = async (req,res) => {
+    try {
+        const location = await createLocation(req.body)
+        res.status(200).json(location)
+    } catch (error) {
+        res.status(500).send("create location error")
+    }
+}
+
+const allLocations = async (req,res) => {
+    try {
+        const locations = await getAllLocations();
+        res.status(200).json(locations);
+    }catch(error) {
+        res.status(500).send("getAllLocations Error")
+    }
+}
+
+const newStock = async (req,res) => {
+    try {
+        const stock = await createStock(req.params.id, req.body)
+        res.status(200).json(stock)
+    } catch (error) {
+        res.status(500).send("create stock error")
+    }
+}
+
+const updateStockAtLocation = async (req,res) => {
+    try {
+        const loc = await updateLocationStock(req.params.id, req.body)
+        res.status(200).json(loc)
+    } catch (error) {
+        res.status(500).send("update stock error")
+    }
+}
+
 module.exports = {
     create,
     allProducts,
-    skuSearch
+    skuSearch,
+    newLocation,
+    allLocations,
+    newStock,
+    updateStockAtLocation,
 }

@@ -13,4 +13,4 @@ app.get("/", (req, res) => {
 });
 
 const routes = require("../src/routes/routes");
-app.use("/api/products", routes);
+app.use("/api", routes);
