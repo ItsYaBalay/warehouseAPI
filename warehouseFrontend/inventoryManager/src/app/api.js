@@ -4,7 +4,7 @@ export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     // baseUrl: "https://capstonebackend-0wah.onrender.com/",
-    baseUrl: "http://localhost:3001",
+    baseUrl: "http://localhost:3001/api/",
     //tagTypes: ["User"],
 
     // prepareHeaders: (headers, { getState }) => {

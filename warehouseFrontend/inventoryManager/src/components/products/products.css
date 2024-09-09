@@ -1,0 +1,333 @@
+/* Home Page Styles */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .product-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .product-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .product-name {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .product-price {
+    font-size: 1.1rem;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    background-color: lightblue;
+  }
+  
+  .sort-options {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+    background-color: lightblue;
+  }
+  .search {
+    padding-top: 2px;
+  }
+  .search-bar {
+    height: 30px;
+  }
+  .product-list {
+    background-color: lightblue;
+  }
+  #root {
+    background-color: lightblue;
+  }
+  
+  img {
+    width: auto;
+  }
+  
+  .button-log {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    color: var(--font-color);
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-log:active,
+  .button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+  }
+  
+  .button-confirm {
+    margin: 50px auto 0 auto;
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 550;
+    color: var(--font-color);
+    cursor: grab;
+  }
+  
+  .button-confirm2 {
+    margin: 50px auto 0 auto;
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 550;
+    color: var(--font-color);
+    cursor: grab;
+    padding-right: 8px;
+  }
+  /* style product on single product page*/
+  .product-form {
+    --input-focus: #2d8cf0;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: beige;
+    --main-color: black;
+  
+    background: lightblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+  }
+  .form-cart {
+    --input-focus: #2d8cf0;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: beige;
+    --main-color: black;
+    padding: 20px;
+    background: lightblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+  }
+  
+  /* style product on checkout page*/
+  .single-product {
+    background-color: lightblue;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  div {
+    background-color: lightblue;
+  }
+  .product {
+    background-color: lightblue;
+    justify-content: center;
+  }
+  .checkout-button {
+    margin-left: 39%;
+  }
+  
+  .nav-bar {
+    background-color: #fff;
+  }
+  
+  .form {
+    --input-focus: #2d8cf0;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: beige;
+    --main-color: black;
+    padding: 20px;
+    background: lightblue;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+  }
+  
+  .title {
+    color: var(--font-color);
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .title span {
+    color: var(--font-color-sub);
+    font-weight: 600;
+    font-size: 17px;
+  }
+  
+  .input {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 10px;
+    outline: none;
+  }
+  
+  .input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+  }
+  
+  .input:focus {
+    border: 2px solid var(--input-focus);
+  }
+  
+  .login-with {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--main-color);
+  }
+  
+  .required-field {
+    font-style: italic;
+    font-weight: bold;
+    font-size: small;
+  }
+  h2 {
+    justify-content: center;
+    margin-left: 45%;
+  }
+  
+  @media (max-width: 400px) {
+    .product-card {
+      width: 100%;
+    }
+    .form-cart {
+      width: 70%;
+    }
+    .form-cart .form {
+      width: 100%;
+    }
+    .form {
+      width: 95%;
+    }
+    .checkout-button {
+      width: 40%;
+      margin-left: 39%;
+    }
+    .input {
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 660px) {
+    .form-cart {
+      width: 70%;
+    }
+    .form-cart .form {
+      width: 100%;
+    }
+    .form {
+      width: 95%;
+    }
+    .input {
+      width: 50%;
+    }
+    .button-confirm {
+      width: 50%;
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .cart-image {
+      width: 100%;
+    }
+    form {
+      width: 50%;
+    }
+    .checkout-button {
+      width: 25%;
+      margin-left: 39%;
+    }
+  }
+  @media (max-width: 500px) {
+    .cart-image {
+      width: 100%;
+    }
+    form {
+      width: 80%;
+    }
+    .button-div {
+      width: auto;
+      font-size: small;
+      padding: 10px;
+    }
+    #quantity {
+      width: auto;
+    }
+    .checkout-button {
+      width: 40%;
+      margin-left: 29%;
+    }
+  }
+  
