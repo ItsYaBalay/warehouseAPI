@@ -6,10 +6,10 @@ const productsApi = api.injectEndpoints({
     getProducts: builder.query({
       query: () => "/products",
     }),
-    getProductById: builder.query({
+    getProductsById: builder.query({
       query: (id) => `/products/${id}`,
     }),
-    addProduct: builder.mutation({
+    addProducts: builder.mutation({
       query: (data) => ({
         url: "/products",
         method: "POST",

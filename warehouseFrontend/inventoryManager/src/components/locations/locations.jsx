@@ -1,25 +1,25 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useGetProductsQuery } from "./productsSlice";
-import "./products.css";
+import { useGetLocationsQuery } from "./locationsSlice";
+import "./locations.css";
 
-const Products = () => {
-  const [sortOption, setSortOption] = useState("name-asc");
+const Locations = () => {
   const {
-    data: products = [],
+    data: locations = [],
     isSuccess,
     isLoading,
     error,
-  } = useGetProductsQuery();
+  } = useGetLocationsQuery();
+  const [sortOption, setSortOption] = useState("name-asc");
   const [searchInput, setSearchInput] = useState("");
 
-  const filteredProducts = products.filter((item) =>
-    item.sku.toLowerCase().includes(searchInput.toLowerCase())
+  const filteredLocations = locations.filter((item) =>
+    item.id.toLowerCase().includes(searchInput.toLowerCase())
   );
 
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
-    const nameComparison = a.sku.localeCompare(b.sku);
+  const sortedLocations = [...filteredLocations].sort((a, b) => {
+    const nameComparison = a.id.localeCompare(b.id);
     return sortOption === "name-asc" ? nameComparison : -nameComparison;
   });
 
@@ -42,20 +42,21 @@ const Products = () => {
   if (error) {
     return (
       <div className="error">
-        <h2>Failed to load products.</h2>
+        <h2>Failed to load Locations.</h2>
         <button onClick={() => window.location.reload()}>Retry</button>
       </div>
     );
   }
 
   return (
-    <div className="products">
-      <h1>Products</h1>
+    <div className="allLocations">
+      <h1>Locations</h1>
+
       <div className="search-container">
         <p className="search">Search:</p>
         <input
           type="text"
-          placeholder="Search products by SKU..."
+          placeholder="Search locations..."
           value={searchInput}
           onChange={handleChange}
           className="search-bar"
@@ -65,18 +66,18 @@ const Products = () => {
       <div className="sort-options">
         <label htmlFor="sort-select">Sort by:</label>
         <select id="sort-select" value={sortOption} onChange={handleSortChange}>
-          <option value="name-asc">SKU Ascending</option>
-          <option value="name-desc">SKU Descending</option>
+          <option value="name-asc">ID Ascending</option>
+          <option value="name-desc">ID Descending</option>
         </select>
       </div>
 
-      <div className="product-list">
+      <div className="location-list">
         {isSuccess &&
-          sortedProducts.map((product) => (
-            <div className="product-card" key={product.upc}>
-              <Link to={`/products/${product.sku}`} className="product-link">
-                <h2 className="product-name">{product.sku}</h2>
-                <p className="product-fullname">{product.name}</p>
+          locations.map((location) => (
+            <div className="location-card" key={location.id}>
+              <Link to={`/locations/${location.id}`} className="location-link">
+                <h2 className="location-name">{location.id}</h2>
+                {/* <p className="location-fullname">{location.name}</p> */}
               </Link>
             </div>
           ))}
@@ -85,4 +86,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Locations;

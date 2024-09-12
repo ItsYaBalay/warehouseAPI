@@ -1,0 +1,128 @@
+/* Home Page Styles */
+.location-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .location-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .location-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .location-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .location-card h2 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .location-card p {
+    font-size: 1rem;
+    /* margin: 10px 0; */
+  }
+  
+  .location-price {
+    font-size: 1.1rem;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .location-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    background-color: lightblue;
+  }
+  
+  .sort-options {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+    background-color: lightblue;
+  }
+  .search {
+    padding-top: 2px;
+  }
+  .search-bar {
+    height: 30px;
+  }
+  .location-list {
+    background-color: lightblue;
+  }
+  #root {
+    background-color: lightblue;
+  }
+  
+  img {
+    width: auto;
+  }
+  
+  .button-log {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    color: var(--font-color);
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-log:active,
+  .button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+  }
+  
+  .button-confirm {
+    margin: 50px auto 0 auto;
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 550;
+    color: var(--font-color);
+    cursor: grab;
+  }
+  
+  .button-confirm2 {
+    margin: 50px auto 0 auto;
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 550;
+    color: var(--font-color);
+    cursor: grab;
+    padding-right: 8px;
+  }
