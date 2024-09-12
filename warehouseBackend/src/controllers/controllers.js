@@ -4,6 +4,7 @@ const {
   getProductBySku,
   createLocation,
   getAllLocations,
+  getLocation,
   createStock,
   updateLocationStock,
 } = require("../queries/queries");
@@ -52,6 +53,15 @@ const allLocations = async (req,res) => {
     }
 }
 
+const singleLocation = async (req,res) => {
+    try {
+        const location = await getLocation(req.params.id);
+        res.status(200).json(location);
+    }catch(error) {
+        res.status(500).send("singleLocation Error")
+    }
+}
+
 const newStock = async (req,res) => {
     try {
         const stock = await createStock(req.params.id, req.body)
@@ -76,6 +86,7 @@ module.exports = {
     skuSearch,
     newLocation,
     allLocations,
+    singleLocation,
     newStock,
     updateStockAtLocation,
 }

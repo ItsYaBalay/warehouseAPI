@@ -27,6 +27,9 @@ const getProductBySku = async (sku) => {
     where: {
       sku,
     },
+    include: {
+      stock: true,
+    }
   });
 };
 
@@ -45,6 +48,17 @@ const createLocation = async ({ id, aisle, side, top, position }) => {
 
 const getAllLocations = async () => {
   return await prisma.location.findMany({
+    include: {
+      stock: true,
+    }
+  });
+};
+
+const getLocation = async (id) => {
+  return await prisma.location.findUnique({
+    where: {
+      id,
+    },
     include: {
       stock: true,
     }
@@ -90,6 +104,7 @@ module.exports = {
   getProductBySku,
   createLocation,
   getAllLocations,
+  getLocation,
   createStock,
   updateLocationStock,
 };
