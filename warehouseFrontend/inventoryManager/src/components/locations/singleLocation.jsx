@@ -7,7 +7,6 @@ import "./locations.css";
 const SingleLocation = () => {
   const { id } = useParams();
   const { data: location, isSuccess } = useGetLocationByIdQuery(id);
-  
   return (
     <div className="location-details">
       <h1>{id}</h1>
@@ -15,7 +14,8 @@ const SingleLocation = () => {
         {isSuccess &&
           location.stock.map((stock) => (
             <li key={stock.id}>
-              {stock.productId} QTY: {stock.masterAmount} Cases
+              {console.log(stock.id)}
+              {stock.product.sku} QTY: {stock.masterAmount} Cases
             </li>
           ))}
       </ul>

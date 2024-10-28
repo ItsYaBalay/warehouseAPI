@@ -10,7 +10,7 @@ const locationsApi = api.injectEndpoints({
       query: (id) => `/locations/${id}`,
     }),
     addToLocation: builder.mutation({
-      query: ({id, data}) => ({
+      query: ({ id, data }) => ({
         url: `/locations/${id}`,
         method: "POST",
         body: data,
@@ -27,8 +27,6 @@ const locationsApi = api.injectEndpoints({
       }),
       invalidateTags: ["Locations"],
     }),
-    
-
   }),
   overrideExisting: false,
 });
@@ -46,4 +44,5 @@ export const {
   useGetLocationByIdQuery,
   useAddToLocationMutation,
   useCreateLocationMutation,
+  useGetStockQuery,
 } = locationsApi;
