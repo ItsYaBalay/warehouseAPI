@@ -18,7 +18,7 @@ const getAllProducts = async () => {
   return await prisma.products.findMany({
     include: {
       stock: true,
-    }
+    },
   });
 };
 
@@ -29,7 +29,7 @@ const getProductBySku = async (sku) => {
     },
     include: {
       stock: true,
-    }
+    },
   });
 };
 
@@ -49,8 +49,12 @@ const createLocation = async ({ id, aisle, side, top, position }) => {
 const getAllLocations = async () => {
   return await prisma.location.findMany({
     include: {
-      stock: true,
-    }
+      stock: {
+        include: {
+          product: true,
+        },
+      },
+    },
   });
 };
 
@@ -60,8 +64,12 @@ const getLocation = async (id) => {
       id,
     },
     include: {
-      stock: true,
-    }
+      stock: {
+        include: {
+          product: true,
+        },
+      },
+    },
   });
 };
 
@@ -81,19 +89,31 @@ const createStock = async (
   return makeStock;
 };
 
+const getStockId = async (productId) => {
+  return await prisma.stock.findMany({
+    where: {
+      productId,
+    },
+    include: {
+      product: true,
+    },
+  });
+};
+
 const updateLocationStock = async (
-  locationId,
-  { productId, master, inner, unit }
+  id,
+  masterAmount,
+  innerAmount,
+  unitAmount,
 ) => {
   return await prisma.stock.update({
     where: {
-      locationId,
+      id,
     },
     data: {
-      productId,
-      master,
-      inner,
-      unit,
+      masterAmount,
+      innerAmount,
+      unitAmount,
     },
   });
 };
@@ -106,5 +126,6 @@ module.exports = {
   getAllLocations,
   getLocation,
   createStock,
+  getStockId,
   updateLocationStock,
 };

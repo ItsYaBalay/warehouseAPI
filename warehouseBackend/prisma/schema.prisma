@@ -23,7 +23,7 @@ model Stock {
   productId String
   masterAmount Int
   innerAmount Int?
-  unitAmount Int
+  unitAmount Int?
   locationId String
   location Location @relation(fields: [locationId], references: [id], onDelete: Cascade)
   @@unique([locationId, productId])
